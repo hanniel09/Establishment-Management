@@ -1,6 +1,7 @@
 package com.hanniel.fcamara.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "establishment")
@@ -9,21 +10,27 @@ public class Establishment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotBlank
     @Column(name = "name")
     private String name;
 
+    @NotBlank
     @Column(name = "CNPJ")
     private String CNPJ;
 
+    @NotBlank
     @Column(name = "address")
     private String address;
 
+    @NotBlank
     @Column(name = "phone")
     private String phone;
 
+    @NotBlank
     @Column(name = "motorcycle_spaces")
     private int motorcycleSpaces;
 
+    @NotBlank
     @Column(name = "car_spaces")
     private int carSpaces;
 

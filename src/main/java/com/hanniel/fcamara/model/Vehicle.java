@@ -1,6 +1,8 @@
 package com.hanniel.fcamara.model;
 
+import com.hanniel.fcamara.dtos.VehicleDTO;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "vehicle")
@@ -9,18 +11,23 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotBlank
     @Column(name = "brand")
     private String brand;
 
+    @NotBlank
     @Column(name = "model")
     private String model;
 
+    @NotBlank
     @Column(name = "color")
     private String color;
 
+    @NotBlank
     @Column(name = "plate")
     private String plate;
 
+    @NotBlank
     @Column(name = "type")
     private String type;
 
@@ -30,6 +37,14 @@ public class Vehicle {
         this.color = color;
         this.plate = plate;
         this.type = type;
+    }
+
+    public Vehicle(VehicleDTO data){
+        this.brand = data.brand();
+        this.model = data.model();
+        this.color = data.color();
+        this.plate = data.plate();
+        this.type = data.type();
     }
 
     public Vehicle() {
