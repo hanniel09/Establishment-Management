@@ -21,10 +21,10 @@ public class Establishment {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "motorcycleSpaces")
+    @Column(name = "motorcycle_spaces")
     private int motorcycleSpaces;
 
-    @Column(name = "carSpaces")
+    @Column(name = "car_spaces")
     private int carSpaces;
 
     public Establishment(String name, String CNPJ, String address, String phone, int motorcycleSpaces, int carSpaces) {
