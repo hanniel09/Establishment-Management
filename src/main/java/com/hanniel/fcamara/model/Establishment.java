@@ -1,5 +1,6 @@
 package com.hanniel.fcamara.model;
 
+import com.hanniel.fcamara.dtos.EstablishmentDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
@@ -41,6 +42,15 @@ public class Establishment {
         this.phone = phone;
         this.motorcycleSpaces = motorcycleSpaces;
         this.carSpaces = carSpaces;
+    }
+
+    public Establishment(EstablishmentDTO data) {
+        this.name = data.name();
+        this.CNPJ = data.CNPJ();
+        this.address = data.address();
+        this.phone = data.phone();
+        this.motorcycleSpaces = data.motorcycleSpaces();
+        this.carSpaces = data.carSpaces();
     }
 
     public Establishment() {
