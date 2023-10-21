@@ -30,4 +30,16 @@ public class EstablishmentService {
         Establishment establishment = new Establishment(data);
         return establishmentRepository.save(establishment);
     }
+
+    public Establishment updateEstablishment(EstablishmentDTO data, long id){
+        Establishment savedEstablishment = findEstablishmentById(id);
+        Establishment updateEstablishment = new Establishment(data);
+        updateEstablishment.setId(savedEstablishment.getId());
+        return establishmentRepository.save(updateEstablishment);
+    }
+
+    public void deleteEstablishment(long id){
+        Establishment establishment = findEstablishmentById(id);
+        establishmentRepository.delete(establishment);
+    }
 }
