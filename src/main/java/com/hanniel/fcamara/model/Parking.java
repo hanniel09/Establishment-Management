@@ -2,7 +2,6 @@ package com.hanniel.fcamara.model;
 
 import com.hanniel.fcamara.dtos.ParkingDTO;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "parking")
@@ -12,12 +11,10 @@ public class Parking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank
     @ManyToOne
     @JoinColumn(name = "id_establishment")
     private Establishment establishment;
 
-    @NotBlank
     @ManyToOne
     @JoinColumn(name = "id_vehicle")
     private Vehicle vehicle;

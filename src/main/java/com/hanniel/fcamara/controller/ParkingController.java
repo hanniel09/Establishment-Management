@@ -1,6 +1,7 @@
 package com.hanniel.fcamara.controller;
 
 import com.hanniel.fcamara.dtos.ParkingDTO;
+import com.hanniel.fcamara.dtos.ParkingRequest;
 import com.hanniel.fcamara.model.Parking;
 import com.hanniel.fcamara.service.ParkingService;
 import org.apache.coyote.Response;
@@ -29,13 +30,13 @@ public class ParkingController {
     }
 
     @PostMapping()
-    public ResponseEntity<Parking> createParking(@RequestBody ParkingDTO parkingDTO) {
-        return new ResponseEntity<>(parkingService.createParking(parkingDTO), HttpStatus.CREATED);
+    public ResponseEntity<Parking> createParking(@RequestBody ParkingRequest request) {
+        return new ResponseEntity<>(parkingService.createParking(request), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<Parking> updateParking(@RequestBody ParkingDTO parkingDTO, @PathVariable long id){
-        return new ResponseEntity<>(parkingService.updateParking(parkingDTO, id), HttpStatus.NO_CONTENT);
+    public ResponseEntity<Parking> updateParking(@RequestBody ParkingRequest request, @PathVariable long id){
+        return new ResponseEntity<>(parkingService.updateParking(request, id), HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping(path = "/{id}")
